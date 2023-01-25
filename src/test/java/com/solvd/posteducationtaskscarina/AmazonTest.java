@@ -16,6 +16,7 @@ public class AmazonTest implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
         homePage.closeLocationElement();
+
         SearchResultPageBase searchResultPage = homePage.openResultPage("umbrella");
         String searchText = "umbrella";
         List<String> titles = searchResultPage.findResults();
