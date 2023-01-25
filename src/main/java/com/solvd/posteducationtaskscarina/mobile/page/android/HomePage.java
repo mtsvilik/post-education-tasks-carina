@@ -1,9 +1,9 @@
 package com.solvd.posteducationtaskscarina.mobile.page.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.solvd.posteducationtaskscarina.mobile.page.common.ShoppingCartPageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.HomePageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.SearchResultPageBase;
-import com.solvd.posteducationtaskscarina.mobile.page.common.ShoppingCartPageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.SignInPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +11,6 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
 public class HomePage extends HomePageBase {
-
-    @FindBy(xpath = "//*[@id='nav-logo-sprites']")
-    private ExtendedWebElement logo;
 
     @FindBy(id = "nav-search-bar-form")
     private ExtendedWebElement searchElement;
@@ -56,11 +53,6 @@ public class HomePage extends HomePageBase {
         searchInput.type(searchText);
         searchButton.click(20);
         return initPage(getDriver(), SearchResultPageBase.class);
-    }
-
-    @Override
-    public boolean isPageOpened() {
-        return logo.isElementPresent();
     }
 
     @Override
