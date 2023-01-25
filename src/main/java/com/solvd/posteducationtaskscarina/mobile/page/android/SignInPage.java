@@ -1,49 +1,52 @@
-package com.solvd.posteducationtaskscarina.page;
+package com.solvd.posteducationtaskscarina.mobile.page.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.solvd.posteducationtaskscarina.mobile.page.common.SignInPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends AbstractPage {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SignInPageBase.class)
+public class SignInPage extends SignInPageBase {
 
-    @FindBy(id = "ap_email")
+    @FindBy(xpath = "//*[@id='ap_email_login']")
     private ExtendedWebElement emailField;
 
-    @FindBy(css = ".a-button-input")
+    @FindBy(xpath = "//*[@id='continue' and @aria-labelledby='continue-announce']")
     private ExtendedWebElement continueButton;
 
-    @FindBy(id = "ap_password")
+    @FindBy(xpath = "//*[@id='ap_password']")
     private ExtendedWebElement passwordField;
 
-    @FindBy(id = "signInSubmit")
+    @FindBy(xpath = "//*[@id='signInSubmit']")
     private ExtendedWebElement signInButton;
 
-    @FindBy(css = ".a-list-item")
+    @FindBy(xpath = "//*[@class='a-alert-heading' and contains(text(), 'No account found')]")
     private ExtendedWebElement signInText;
-
-    @FindBy(xpath = "//*[@class='a-alert-heading']")
-    private ExtendedWebElement signInMessage;
 
     public SignInPage(WebDriver driver) {
         super(driver);
     }
 
+    @Override
     public void enterEmail(String email) {
         emailField.type(email);
         continueButton.click();
     }
 
+    @Override
     public void enterPassword(String password) {
         passwordField.type(password);
         signInButton.click();
     }
 
+    @Override
     public void enterNonExistentEmail(String email) {
         emailField.type(email);
         continueButton.click();
     }
 
+    @Override
     public String getSignInText() {
         return signInText.getText();
     }

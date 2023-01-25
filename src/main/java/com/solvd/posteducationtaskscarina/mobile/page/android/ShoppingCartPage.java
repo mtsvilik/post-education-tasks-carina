@@ -1,44 +1,46 @@
-package com.solvd.posteducationtaskscarina.page;
+package com.solvd.posteducationtaskscarina.mobile.page.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.solvd.posteducationtaskscarina.component.ProductCartElement;
+import com.solvd.posteducationtaskscarina.mobile.page.common.ShoppingCartPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class ShoppingCartPage extends AbstractPage {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ShoppingCartPageBase.class)
+public class ShoppingCartPage extends ShoppingCartPageBase {
 
-    @FindBy(id = "attach-desktop-sideSheet")
-    private ProductCartElement productCartElement;
-
-    @FindBy(xpath = "//*[@class='a-row sc-your-amazon-cart-is-empty']")
+    @FindBy(xpath = "//*[@class='a-spacing-top-base a-text-center sc-your-amazon-cart-is-empty']")
     private ExtendedWebElement cartIsEmptyText;
 
-    @FindBy(id = "nav-cart")
+    @FindBy(xpath = "//*[@id='nav-button-cart']")
     private ExtendedWebElement shoppingCartButton;
 
     @FindBy(xpath = "//*[@class='a-truncate-cut' and contains(text(), 'iPhone')]")
     private ExtendedWebElement title;
 
-    @FindBy(css = ".a-dropdown-prompt")
+    @FindBy(xpath = "//*[@aria-label='2']")
     private ExtendedWebElement value;
 
     public ShoppingCartPage(WebDriver driver) {
         super(driver);
     }
 
+    @Override
     public String getCartIsEmptyText() {
         return cartIsEmptyText.getText();
     }
 
+    @Override
     public void clickShoppingCartButton() {
         shoppingCartButton.click();
     }
 
+    @Override
     public String getProductTitle() {
         return title.getText();
     }
 
+    @Override
     public String getValue() {
         return value.getText();
     }
