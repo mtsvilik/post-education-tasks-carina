@@ -1,15 +1,15 @@
-package com.solvd.posteducationtaskscarina.mobile.page.android;
+package com.solvd.posteducationtaskscarina.mobile.page.ios;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.solvd.posteducationtaskscarina.mobile.page.common.ShoppingCartPageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.HomePageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.SearchResultPageBase;
+import com.solvd.posteducationtaskscarina.mobile.page.common.ShoppingCartPageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.SignInPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = HomePageBase.class)
 public class HomePage extends HomePageBase {
 
     @FindBy(xpath = "//*[@type='text' and @placeholder='Search Amazon']")
@@ -48,7 +48,7 @@ public class HomePage extends HomePageBase {
     @Override
     public SearchResultPageBase openResultPage(String searchText) {
         searchInput.type(searchText);
-        searchButton.click(10);
+        searchButton.click();
         return initPage(getDriver(), SearchResultPageBase.class);
     }
 

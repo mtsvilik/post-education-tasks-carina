@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class AmazonTest implements IAbstractTest {
+public class AmazonTestIOS implements IAbstractTest {
 
     @Test
     public void verifySearchResultsTest() {
@@ -22,9 +22,8 @@ public class AmazonTest implements IAbstractTest {
         List<String> titles = searchResultPage.findResults();
 
         SoftAssert softAssert = new SoftAssert();
-        titles.
-                forEach(title -> softAssert.assertTrue(title.contains(searchText)));
-
+        titles
+                .forEach(title -> softAssert.assertTrue(title.contains(searchText)));
         softAssert.assertAll();
     }
 
@@ -38,7 +37,8 @@ public class AmazonTest implements IAbstractTest {
         signInPage.enterEmail(R.TESTDATA.get("user1.email"));
         signInPage.enterPassword(R.TESTDATA.get("user1.password"));
 
-        Assert.assertTrue(homePage.getUserName().contains(R.TESTDATA.get("userName")));
+        Assert.assertTrue(homePage.getUserName().contains(R.TESTDATA.get("userName")),
+                "Name of account should contains user name");
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.solvd.posteducationtaskscarina.mobile.page.android;
+package com.solvd.posteducationtaskscarina.mobile.page.ios;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.solvd.posteducationtaskscarina.mobile.page.common.ProductPageBase;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SearchResultPageBase.class)
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = SearchResultPageBase.class)
 public class SearchResultPage extends SearchResultPageBase {
 
     @FindBy(xpath = "//*[@class='sg-col-inner']")
@@ -33,7 +33,7 @@ public class SearchResultPage extends SearchResultPageBase {
 
     @Override
     public ProductPageBase clickSearchResult() {
-        searchResult.click();
+        searchResult.click(10);
         return initPage(getDriver(), ProductPageBase.class);
     }
 }
