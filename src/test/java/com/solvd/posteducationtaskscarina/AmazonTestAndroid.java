@@ -2,14 +2,16 @@ package com.solvd.posteducationtaskscarina;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.posteducationtaskscarina.mobile.page.common.*;
+import com.solvd.posteducationtaskscarina.utils.MobileContextUtils;
 import com.zebrunner.carina.utils.R;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class AmazonTestAndroid implements IAbstractTest {
+public class AmazonTestAndroid implements IAbstractTest, IMobileUtils {
 
     @Test
     public void verifySearchResultsTest() {
@@ -58,6 +60,9 @@ public class AmazonTestAndroid implements IAbstractTest {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
         homePage.closeLocationElement();
+
+        MobileContextUtils contextHelper = new MobileContextUtils();
+        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
 
         ShoppingCartPageBase shoppingCartPage = homePage.clickShoppingCartButton();
         Assert.assertEquals(shoppingCartPage.getCartIsEmptyText(),

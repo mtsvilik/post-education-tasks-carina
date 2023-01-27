@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SearchResultPageBase.class)
 public class SearchResultPage extends SearchResultPageBase {
 
-    @FindBy(xpath = "//*[@class='sg-col-inner']")
+    @FindBy(xpath = "//div//h2//*[@class='a-size-small a-color-base a-text-normal']")
     private List<ExtendedWebElement> resultProductList;
 
     @FindBy(xpath = "//*[@class='s-image' and @data-image-index='2']")
@@ -33,7 +33,7 @@ public class SearchResultPage extends SearchResultPageBase {
 
     @Override
     public ProductPageBase clickSearchResult() {
-        searchResult.click();
+        searchResult.click(10);
         return initPage(getDriver(), ProductPageBase.class);
     }
 }

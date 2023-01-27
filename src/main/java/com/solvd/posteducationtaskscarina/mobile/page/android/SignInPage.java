@@ -37,7 +37,7 @@ public class SignInPage extends SignInPageBase {
     @Override
     public void enterPassword(String password) {
         passwordField.type(password);
-        signInButton.click();
+        signInButton.click(10);
     }
 
     @Override
