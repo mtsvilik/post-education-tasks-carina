@@ -27,7 +27,7 @@ public class SearchResultPage extends SearchResultPageBase {
     @Override
     public List<String> findResults() {
         return resultProductList.stream()
-                .map(title -> title.toString().toLowerCase(Locale.ROOT))
+                .map(title -> title.getText().toLowerCase(Locale.ROOT))
                 .collect(Collectors.toList());
     }
 

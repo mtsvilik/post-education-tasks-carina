@@ -2,14 +2,16 @@ package com.solvd.posteducationtaskscarina;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.solvd.posteducationtaskscarina.mobile.page.common.*;
+import com.solvd.posteducationtaskscarina.utils.MobileContextUtils;
 import com.zebrunner.carina.utils.R;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class AmazonTestIOS implements IAbstractTest {
+public class AmazonTestIOS implements IAbstractTest, IMobileUtils {
 
     @Test
     public void verifySearchResultsTest() {
@@ -20,6 +22,9 @@ public class AmazonTestIOS implements IAbstractTest {
         SearchResultPageBase searchResultPage = homePage.openResultPage("umbrella");
         String searchText = "umbrella";
         List<String> titles = searchResultPage.findResults();
+
+        MobileContextUtils contextHelper = new MobileContextUtils();
+        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
 
         SoftAssert softAssert = new SoftAssert();
         titles
