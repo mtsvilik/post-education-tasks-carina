@@ -23,6 +23,9 @@ public class AmazonTestAndroid implements IAbstractTest, IMobileUtils {
         String searchText = "umbrella";
         List<String> titles = searchResultPage.findResults();
 
+        MobileContextUtils contextHelper = new MobileContextUtils();
+        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
+
         SoftAssert softAssert = new SoftAssert();
         titles
                 .forEach(title -> softAssert.assertTrue(title.contains(searchText)));
@@ -60,9 +63,6 @@ public class AmazonTestAndroid implements IAbstractTest, IMobileUtils {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.open();
         homePage.closeLocationElement();
-
-        MobileContextUtils contextHelper = new MobileContextUtils();
-        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
 
         ShoppingCartPageBase shoppingCartPage = homePage.clickShoppingCartButton();
         Assert.assertEquals(shoppingCartPage.getCartIsEmptyText(),
