@@ -1,6 +1,8 @@
 package com.solvd.posteducationtaskscarina.mobile.page.ios;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
+import com.solvd.posteducationtaskscarina.mobile.page.common.AppPageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.ShoppingCartPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +22,9 @@ public class ShoppingCartPage extends ShoppingCartPageBase {
 
     @FindBy(xpath = "//*[@class='a-declarative']//*[@aria-label='2']")
     private ExtendedWebElement value;
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == 'Tabs'`]")
+    private ExtendedWebElement tabsButton;
 
     public ShoppingCartPage(WebDriver driver) {
         super(driver);
@@ -43,5 +48,11 @@ public class ShoppingCartPage extends ShoppingCartPageBase {
     @Override
     public String getValue() {
         return value.getText();
+    }
+
+    @Override
+    public AppPageBase clickTabsButton() {
+        tabsButton.click();
+        return initPage(getDriver(), AppPageBase.class);
     }
 }

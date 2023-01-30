@@ -1,6 +1,7 @@
 package com.solvd.posteducationtaskscarina.mobile.page.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.solvd.posteducationtaskscarina.mobile.page.common.AppPageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.ShoppingCartPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
@@ -44,4 +45,10 @@ public class ShoppingCartPage extends ShoppingCartPageBase {
     public String getValue() {
         return value.getText();
     }
+
+    @Override
+    public AppPageBase clickTabsButton() {
+        return null;
+    }
+
 }

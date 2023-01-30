@@ -17,4 +17,6 @@ public abstract class ShoppingCartPageBase extends AbstractPage {
 
     public abstract String getValue();
 
+    public abstract AppPageBase clickTabsButton();
+
 }

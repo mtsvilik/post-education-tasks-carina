@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class AmazonTestIOS implements IAbstractTest, IMobileUtils {
+public class AmazonIosTest implements IAbstractTest, IMobileUtils {
 
     @Test
     public void verifySearchResultsTest() {
@@ -22,9 +22,6 @@ public class AmazonTestIOS implements IAbstractTest, IMobileUtils {
         SearchResultPageBase searchResultPage = homePage.openResultPage("umbrella");
         String searchText = "umbrella";
         List<String> titles = searchResultPage.findResults();
-
-        MobileContextUtils contextHelper = new MobileContextUtils();
-        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
 
         SoftAssert softAssert = new SoftAssert();
         titles
@@ -67,6 +64,12 @@ public class AmazonTestIOS implements IAbstractTest, IMobileUtils {
         ShoppingCartPageBase shoppingCartPage = homePage.clickShoppingCartButton();
         Assert.assertEquals(shoppingCartPage.getCartIsEmptyText(),
                 R.TESTDATA.get("cartIsEmptyText"), "Shopping cart page should contains add to cart is empty text");
+
+        MobileContextUtils contextHelper = new MobileContextUtils();
+        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
+
+        AppPageBase appPageBase = shoppingCartPage.clickTabsButton();
+        appPageBase.closeTabButton();
     }
 
     @Test
