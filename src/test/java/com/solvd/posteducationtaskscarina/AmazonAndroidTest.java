@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class AmazonTestAndroid implements IAbstractTest, IMobileUtils {
+public class AmazonAndroidTest implements IAbstractTest, IMobileUtils {
 
     @Test
     public void verifySearchResultsTest() {
@@ -23,13 +23,16 @@ public class AmazonTestAndroid implements IAbstractTest, IMobileUtils {
         String searchText = "umbrella";
         List<String> titles = searchResultPage.findResults();
 
-        MobileContextUtils contextHelper = new MobileContextUtils();
-        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
-
         SoftAssert softAssert = new SoftAssert();
         titles
                 .forEach(title -> softAssert.assertTrue(title.contains(searchText)));
         softAssert.assertAll();
+
+        MobileContextUtils contextHelper = new MobileContextUtils();
+        contextHelper.switchMobileContext(MobileContextUtils.View.NATIVE);
+
+        AppPageBase appPageBase = searchResultPage.clickTabSwitcherButton();
+        appPageBase.clickAppButtons();
     }
 
     @Test

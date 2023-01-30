@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class AmazonTestIOS implements IAbstractTest {
+public class AmazonIosTest implements IAbstractTest {
 
     @Test
     public void verifySearchResultsTest() {

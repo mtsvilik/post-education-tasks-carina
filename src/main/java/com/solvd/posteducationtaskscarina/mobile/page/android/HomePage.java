@@ -1,10 +1,7 @@
 package com.solvd.posteducationtaskscarina.mobile.page.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.solvd.posteducationtaskscarina.mobile.page.common.ShoppingCartPageBase;
-import com.solvd.posteducationtaskscarina.mobile.page.common.HomePageBase;
-import com.solvd.posteducationtaskscarina.mobile.page.common.SearchResultPageBase;
-import com.solvd.posteducationtaskscarina.mobile.page.common.SignInPageBase;
+import com.solvd.posteducationtaskscarina.mobile.page.common.*;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;

@@ -15,4 +15,6 @@ public abstract class SearchResultPageBase extends AbstractPage {
 
     public abstract ProductPageBase clickSearchResult();
 
+    public abstract AppPageBase clickTabSwitcherButton();
+
 }

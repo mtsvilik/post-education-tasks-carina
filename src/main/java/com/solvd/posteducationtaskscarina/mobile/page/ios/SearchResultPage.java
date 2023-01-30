@@ -1,6 +1,7 @@
 package com.solvd.posteducationtaskscarina.mobile.page.ios;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.solvd.posteducationtaskscarina.mobile.page.common.AppPageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.ProductPageBase;
 import com.solvd.posteducationtaskscarina.mobile.page.common.SearchResultPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
@@ -35,5 +36,10 @@ public class SearchResultPage extends SearchResultPageBase {
     public ProductPageBase clickSearchResult() {
         searchResult.click(10);
         return initPage(getDriver(), ProductPageBase.class);
+    }
+
+    @Override
+    public AppPageBase clickTabSwitcherButton() {
+        return null;
     }
 }
