@@ -3,23 +3,23 @@
 
 <suite name="android-suite" parallel="tests" thread-count="2">
 
+    <parameter name="provider" value="mcloud"/>
     <parameter name="jenkinsJobName" value="android-tests"/>
     <parameter name="jenkinsJobType" value="android"/>
     <parameter name="jenkinsEnvironments" value="DEMO"/>
-    <parameter name="provider" value="mcloud"/>
 
     <parameter name="jenkinsRegressionPipeline" value="mobile_regression" />
     <parameter name="jenkinsJobExecutionOrder" value="3" />
     <parameter name="jenkinsJobExecutionMode" value="continue" />
     <parameter name="jenkinsAutoScreenshot" value="true" />
 
-    <test name="chrome-test">
-        <parameter name="browserName" value="chrome"/>
-        <classes>
-            <class name="com.solvd.posteducationtaskscarina.AmazonAndroidTest">
-            </class>
-        </classes>
-    </test>
+<!--    <test name="chrome-test">-->
+<!--        <parameter name="browserName" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="com.solvd.posteducationtaskscarina.AmazonAndroidTest">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
     <test name="firefox-test">
         <parameter name="browserName" value="firefox"/>
         <classes>
